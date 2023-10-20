@@ -6,14 +6,20 @@ import { ProductList } from "./ProductList"
 import data from "./data.json"
 
 export const BTShoe = () => {
-    console.log('data: ', data);
+    // console.log('data: ', data);
     return (
-    <div>
-        BTShoe
-        
-        <ProductList />
+    <div className="container mt-3">
+        <div className="d-flex justify-content-between">
+            <h1>Shoe Shop</h1>
+
+            
+        </div>
+        <ProductList 
+            data={data}
+        />
         <ProductDetailModal />
         <CartModal />
+        
     </div>
   )
 }

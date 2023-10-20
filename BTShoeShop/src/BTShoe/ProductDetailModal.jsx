@@ -2,6 +2,8 @@
 
 export const ProductDetailModal = () => {
   return (
-    <div>ProductDetailModal</div>
+    <div>
+        
+    </div>
   )
 }
