@@ -3,7 +3,7 @@
 import { ProductItem } from "./ProductItem"
 
 export const ProductList = (props) => {
-    const {data} = props
+    const {data, handleProductDetail} = props
   return (
     <div className="row">
         {/* ở map đầu tiên nó sẽ truyền xuống data của product đầu tiên, rồi thứ 2, thứ 3... */}
@@ -13,6 +13,7 @@ export const ProductList = (props) => {
                 <ProductItem 
                     key = {product.id}
                     product = {product}
+                    handleProductDetail = {handleProductDetail}
                 />
             )
         })}

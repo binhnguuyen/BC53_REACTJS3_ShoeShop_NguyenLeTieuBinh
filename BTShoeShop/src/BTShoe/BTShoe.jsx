@@ -20,6 +20,10 @@ export const BTShoe = () => {
         quantity: 995,
         image: 'http://svcy3.myclass.vn/images/adidas-prophere.png',
     })
+
+    const handleProductDetail = (product) => {
+        setProductdetail(product)
+    }
     return (
         <div className="container mt-3">
             <div className="d-flex justify-content-between">
@@ -27,8 +31,12 @@ export const BTShoe = () => {
 
 
             </div>
+            {/* do setSate đang nằm bên ProductItem nên mình phải truyền hàm handleProductDetail xuống cho ProductItem cho nó setState, gián tiếp qua component ProductList, tất nhiên bên ProductList phải truyền thêm lần nữa mới qua đc ProdcuctItem */}
+            {/* Cái handleProductDetail là cái props, cái handleProductDetail thứ 2 mới là hàm đc truyền vào props để thông qua props mà truyền xuống component muốn truyền */}
+            {/* ở đây có 2 props là data và handleProductDetail */}
             <ProductList
                 data={data}
+                handleProductDetail = {handleProductDetail}
             />
             <ProductDetailModal 
                 productDetail={productDetail}
