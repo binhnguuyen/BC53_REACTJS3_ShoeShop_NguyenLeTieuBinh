@@ -1,6 +1,6 @@
 // import React from 'react'
 
-export const CartModal = ({carts}) => {
+export const CartModal = ({carts, handleCartQuantity}) => {
   // bóc tách trực tiếp
   // const {carts} = props
   // console.log('carts: ', carts);
@@ -77,7 +77,7 @@ export const CartModal = ({carts}) => {
                               height: 40,
                               width: 40,
                             }}
-                            // onClick={() => handleCartQuantity(value.id, 1)}
+                            onClick={() => handleCartQuantity(value.id, 1)}
                           >
                             +
                           </button>
@@ -88,7 +88,7 @@ export const CartModal = ({carts}) => {
                               height: 40,
                               width: 40,
                             }}
-                            // onClick={() => handleCartQuantity(value.id, -1)}
+                            onClick={() => handleCartQuantity(value.id, -1)}
                           >
                             -
                           </button>

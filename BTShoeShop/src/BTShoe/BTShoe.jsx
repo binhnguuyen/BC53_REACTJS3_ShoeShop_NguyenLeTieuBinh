@@ -86,7 +86,14 @@ export const BTShoe = () => {
         })
     }
 
-
+    const handleCartQuantity = (productId, quantity) => {
+        setCarts((prevState) => {
+            const index = prevState.findIndex((value) => value.id === productId)
+            // biểu thức sau đây nghĩa là nếu cái số lượng trả về 0 tức là falsy thì nó sẽ lấy giá trị là 1
+            prevState[index].cartQuantity = prevState[index].cartQuantity + quantity || 1
+            return[...prevState]
+        })
+    }
 
     return (
         <div className="container mt-3">
@@ -115,10 +122,11 @@ export const BTShoe = () => {
                 handleCart = {handleCart}
             />
             <ProductDetailModal 
-                productDetail={productDetail}
+                productDetail = {productDetail}
             />
             <CartModal 
-                carts={carts}
+                carts = {carts}
+                handleCartQuantity = {handleCartQuantity}
             />
 
         </div>
