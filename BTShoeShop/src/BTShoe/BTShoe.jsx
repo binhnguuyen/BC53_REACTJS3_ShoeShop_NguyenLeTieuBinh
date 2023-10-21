@@ -1,5 +1,4 @@
-import React from 'react'
-import { useState } from "react"
+import React, { useState } from 'react'
 import { CartModal } from "./CartModal"
 import { ProductDetailModal } from "./ProductDetailModal"
 import { ProductList } from "./ProductList"
@@ -29,6 +28,7 @@ export const BTShoe = () => {
     // Lưu ý: useState ngay đây là 1 cái mảng chứ ko phải obj như trên productDetail
     // lý do là vì trong hàm setCarts đây mình muốn sd findIndex chỉ áp dụng đc cho mảng chứ ko cho obj
     const [carts, setCarts] = useState([
+        // khi truyền 1 mảng vào 1 cái state thì nó chỉ lưu 1 cái giá trị là 1 tham chiếu chứ ko phải mảng
         // giá trị mặc định làm để xem UI phù hợp hay chưa, nếu xong rồi thì xoá đi
         // nếu ko thì khi vừa vào giỏ hàng đã có sẵn 1 sp thì ko đúng logic
         // {
@@ -88,6 +88,7 @@ export const BTShoe = () => {
 
     const handleCartQuantity = (productId, quantity) => {
         setCarts((prevState) => {
+            // ko cần tìm có trong giỏ hàng hay ko vì khi có nút + - thì chắc chắn sp đã nằm trong giỏ hàng rồi
             const index = prevState.findIndex((value) => value.id === productId)
             // biểu thức sau đây nghĩa là nếu cái số lượng trả về 0 tức là falsy thì nó sẽ lấy giá trị là 1
             prevState[index].cartQuantity = prevState[index].cartQuantity + quantity || 1

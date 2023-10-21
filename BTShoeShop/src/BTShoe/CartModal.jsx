@@ -1,6 +1,6 @@
 // import React from 'react'
 
-export const CartModal = ({carts, handleCartQuantity, deleteCart}) => {
+export const CartModal = ({ carts, handleCartQuantity, deleteCart }) => {
   // bóc tách trực tiếp
   // const {carts} = props
   // console.log('carts: ', carts);
@@ -26,9 +26,10 @@ export const CartModal = ({carts, handleCartQuantity, deleteCart}) => {
             />
           </div>
           <div className="modal-body">
-            {/* nếu carts rỗng */}
+            {/* nếu carts rỗng: falsy */}
             {!carts.length && <h2>Vui lòng chọn sản phẩm</h2>}
-            {/* nếu carts có sản phẩm */}
+            {/* nếu carts có sản phẩm: falsy của falsy là true */}
+            {/* nếu ko có !! thì nó sẽ thêm số 0 vào */}
             {!!carts.length && (
               <table className="table">
                 <thead>
@@ -83,7 +84,7 @@ export const CartModal = ({carts, handleCartQuantity, deleteCart}) => {
                           </button>
                           <p className="m-2">{value.cartQuantity}</p>
                           <button
-                            className="btn btn-outline-danger" 
+                            className="btn btn-outline-danger"
                             style={{
                               height: 40,
                               width: 40,
@@ -114,3 +115,8 @@ export const CartModal = ({carts, handleCartQuantity, deleteCart}) => {
     </div>
   );
 };
+
+// falsy: 0, "", NaN, undefined, null, false => trả về false
+// !! là quy đối giá trị ra boolean
+// !carts.length là false, tức mảng rỗng
+// !!carts.length là true
