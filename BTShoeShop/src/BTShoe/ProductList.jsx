@@ -3,7 +3,7 @@
 import { ProductItem } from "./ProductItem"
 
 export const ProductList = (props) => {
-    const {data, handleProductDetail} = props
+    const {data, handleProductDetail, handleCart} = props
   return (
     <div className="row">
         {/* ở map đầu tiên nó sẽ truyền xuống data của product đầu tiên, rồi thứ 2, thứ 3... */}
@@ -14,6 +14,7 @@ export const ProductList = (props) => {
                     key = {product.id}
                     product = {product}
                     handleProductDetail = {handleProductDetail}
+                    handleCart = {handleCart}
                 />
             )
         })}

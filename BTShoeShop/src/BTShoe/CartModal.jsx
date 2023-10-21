@@ -61,7 +61,7 @@ export const CartModal = (props) => {
                         <td>
                           <p
                             style={{
-                              maxWidth: 300,
+                              maxWidth: 250,
                             }}
                           >
                             {value.description}
@@ -69,19 +69,27 @@ export const CartModal = (props) => {
                         </td>
                         <td>{value.price}</td>
                         <td>
-                          {/* <button
+                          <button
                             className="btn btn-outline-success"
-                            onClick={() => handleCartQuantity(value.id, 1)}
+                            style={{
+                              height: 40,
+                              width: 40,
+                            }}
+                            // onClick={() => handleCartQuantity(value.id, 1)}
                           >
                             +
                           </button>
-                          <span className="mx-2">{value.cartQuantity}</span>
+                          <p className="m-2">{value.cartQuantity}</p>
                           <button
-                            className="btn btn-outline-danger"
-                            onClick={() => handleCartQuantity(value.id, -1)}
+                            className="btn btn-outline-danger" 
+                            style={{
+                              height: 40,
+                              width: 40,
+                            }}
+                            // onClick={() => handleCartQuantity(value.id, -1)}
                           >
                             -
-                          </button> */}
+                          </button>
                         </td>
                         <td>{value.cartQuantity * value.price}</td>
                         <td>
