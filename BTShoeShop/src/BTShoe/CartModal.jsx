@@ -1,7 +1,9 @@
 // import React from 'react'
 
-export const CartModal = (props) => {
-  const {carts} = props
+export const CartModal = ({carts}) => {
+  // bóc tách trực tiếp
+  // const {carts} = props
+  // console.log('carts: ', carts);
   return (
     <div
       className="modal fade"

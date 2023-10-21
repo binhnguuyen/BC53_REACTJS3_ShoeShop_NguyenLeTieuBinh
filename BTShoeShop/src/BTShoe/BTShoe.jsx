@@ -30,6 +30,7 @@ export const BTShoe = () => {
     // lý do là vì trong hàm setCarts đây mình muốn sd findIndex chỉ áp dụng đc cho mảng chứ ko cho obj
     const [carts, setCarts] = useState([
         // giá trị mặc định làm để xem UI phù hợp hay chưa, nếu xong rồi thì xoá đi
+        // nếu ko thì khi vừa vào giỏ hàng đã có sẵn 1 sp thì ko đúng logic
         // {
         // id: 1,
         //     name: 'Adidas Prophere',
@@ -51,12 +52,21 @@ export const BTShoe = () => {
         // bằng cách spread operator để copy nông lại rồi thêm thuộc tính cartQuantity với giá trị default là 1
         // setCart([...carts, {...product, cartQuantity: 1}])
         // thay vì truyền vào 1 giá trị cụ thể thì mình truyền vào 1 callback
-        // giá trị trả về của callback đem đi setState cho mình
+        // giá trị trả về của callback đem đi setState cho mình, nó sẽ trả về giá trị là prevState
+        // cái prevState bằng với cái state (carts) hiện tại
         setCarts((prevState) => {
             // kiểm tra trong giỏ hàng có sp đó hay chưa
+            // product là cái định truyền vào
+            // value là cái hiện tại trong giỏ hàng
             const index = prevState.findIndex((value) => value.id === product.id)
+            console.log('index: ', index);
 
+            // copy nông và thêm sán phẩm mới vào product khi ko cần để ý có hàng bên trong giỏ hàng hay ko
+            // setCarts([...carts, {...product, cartQuantily :1}])
+
+            
             // Chưa tồn tại trong carts
+            // nếu add vào mà ra số lượng 2 thì là do nó đang hach code? binding động sẽ giải quyết đc
             if (index === -1) {
                 prevState.push({ ...product, cartQuantity: 1 })
             } else {
@@ -64,13 +74,15 @@ export const BTShoe = () => {
                 prevState[index].cartQuantity += 1
             }
             // sao phải return về 1 mảng mới???
-            // mảng là 1 giá trị tham chiếu
+            // mảng là 1 giá trị tham chiếu ko tồn tại thực tế
             // cái mảng này đc lưu với dạng ô nhớ
             // cái ô nhớ đó có giá trị là 1 mảng
             // khi tạo ra biến có giá trị là tham chiếu thì nó chỉ địa chỉ ô nhớ
             // khi return cái prevState thì nó chỉ trả về địa chỉ của ô nhớ đó chứ ko phải nội dung bên trong đó
             // nên mình phải return về 1 mảng mới
+            // return về cái gì thì nó sẽ đem giá trị đó đem đi set lại state cho mình trong setCarts
             return [...prevState]
+            
         })
     }
 
