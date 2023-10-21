@@ -95,6 +95,13 @@ export const BTShoe = () => {
         })
     }
 
+    const deleteCart = (productId) => {
+        // prevState cũng tương đương với state hiện tại thôi nhưng sau khi mình setSate nó trả lại cái này nên đặt là prevState
+        setCarts((prevState) => {
+            return prevState.filter((value => value.id !== productId))
+        })
+    }
+
     return (
         <div className="container mt-3">
             <div className="d-flex justify-content-between">
@@ -127,6 +134,7 @@ export const BTShoe = () => {
             <CartModal 
                 carts = {carts}
                 handleCartQuantity = {handleCartQuantity}
+                deleteCart = {deleteCart}
             />
 
         </div>

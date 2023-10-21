@@ -1,6 +1,6 @@
 // import React from 'react'
 
-export const CartModal = ({carts, handleCartQuantity}) => {
+export const CartModal = ({carts, handleCartQuantity, deleteCart}) => {
   // bóc tách trực tiếp
   // const {carts} = props
   // console.log('carts: ', carts);
@@ -95,12 +95,12 @@ export const CartModal = ({carts, handleCartQuantity}) => {
                         </td>
                         <td>{value.cartQuantity * value.price}</td>
                         <td>
-                          {/* <button
+                          <button
                             className="btn btn-outline-dark"
                             onClick={() => deleteCart(value.id)}
                           >
                             X
-                          </button> */}
+                          </button>
                         </td>
                       </tr>
                     );
