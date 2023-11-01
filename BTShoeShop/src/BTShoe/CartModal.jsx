@@ -1,9 +1,9 @@
 // import React from 'react'
 
-export const CartModal = ({ carts, handleCartQuantity, deleteCart }) => {
+export const CartModal = ({ carts, handleCartQuantity, deleteCart, paymentInCart }) => {
   // bóc tách trực tiếp
   // const {carts} = props
-  // console.log('carts: ', carts);
+
   return (
     <div
       className="modal fade"
@@ -54,7 +54,7 @@ export const CartModal = ({ carts, handleCartQuantity, deleteCart }) => {
                         <td>
                           <img
                             style={{
-                              width: 100,
+                              width: 80,
                             }}
                             src={value.image}
                             alt="..."
@@ -107,8 +107,21 @@ export const CartModal = ({ carts, handleCartQuantity, deleteCart }) => {
                     );
                   })}
                 </tbody>
+
               </table>
             )}
+            <div className="d-flex">
+              <button
+                className="btn btn-success col-12 ms-auto"
+                style={{
+                  width: 70,
+                }}
+                onClick={() => paymentInCart()}
+              >
+                Buy
+              </button>
+            </div>
+
           </div>
         </div>
       </div>

@@ -59,7 +59,7 @@ export const BTShoe = () => {
             // product là cái định truyền vào
             // value là cái hiện tại trong giỏ hàng
             const index = prevState.findIndex((value) => value.id === product.id)
-            console.log('index: ', index);
+            // console.log('index: ', index);
 
             // copy nông và thêm sán phẩm mới vào product khi ko cần để ý có hàng bên trong giỏ hàng hay ko
             // setCarts([...carts, {...product, cartQuantily :1}])
@@ -103,6 +103,12 @@ export const BTShoe = () => {
         })
     }
 
+    const paymentInCart = () => {
+        setCarts((prevState) => {
+            return prevState = {};
+        })
+    }
+
     return (
         <div className="container mt-3">
             <div className="d-flex justify-content-between">
@@ -136,6 +142,7 @@ export const BTShoe = () => {
                 carts = {carts}
                 handleCartQuantity = {handleCartQuantity}
                 deleteCart = {deleteCart}
+                paymentInCart = {paymentInCart}
             />
 
         </div>
