@@ -37,7 +37,7 @@ export const CartModal = ({ carts, handleCartQuantity, deleteCart }) => {
                     <th>STT</th>
                     <th>Image</th>
                     <th>Name</th>
-                    <th>Descripttion</th>
+                    {/* <th>Descripttion</th> */}
                     <th>Price</th>
                     <th>Quantity</th>
                     <th>Total</th>
@@ -54,14 +54,14 @@ export const CartModal = ({ carts, handleCartQuantity, deleteCart }) => {
                         <td>
                           <img
                             style={{
-                              width: 120,
+                              width: 100,
                             }}
                             src={value.image}
                             alt="..."
                           />
                         </td>
                         <td>{value.name}</td>
-                        <td>
+                        {/* <td>
                           <p
                             style={{
                               maxWidth: 250,
@@ -69,7 +69,7 @@ export const CartModal = ({ carts, handleCartQuantity, deleteCart }) => {
                           >
                             {value.description}
                           </p>
-                        </td>
+                        </td> */}
                         <td>{value.price}</td>
                         <td>
                           <button
