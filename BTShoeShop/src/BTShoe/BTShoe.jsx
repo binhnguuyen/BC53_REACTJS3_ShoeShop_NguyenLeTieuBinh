@@ -54,7 +54,10 @@ export const BTShoe = () => {
         // thay vì truyền vào 1 giá trị cụ thể thì mình truyền vào 1 callback
         // giá trị trả về của callback đem đi setState cho mình, nó sẽ trả về giá trị là prevState
         // cái prevState bằng với cái state (carts) hiện tại
+        // let prevState = {};
         setCarts((prevState) => {
+            document.querySelector("#paymentSuccess").classList.remove("d-block");
+            document.querySelector("#paymentSuccess").classList.add("d-none");
             // kiểm tra trong giỏ hàng có sp đó hay chưa
             // product là cái định truyền vào
             // value là cái hiện tại trong giỏ hàng
@@ -64,7 +67,7 @@ export const BTShoe = () => {
             // copy nông và thêm sán phẩm mới vào product khi ko cần để ý có hàng bên trong giỏ hàng hay ko
             // setCarts([...carts, {...product, cartQuantily :1}])
 
-            
+
             // Chưa tồn tại trong carts
             // nếu add vào mà ra số lượng 2 thì là do nó đang hach code? binding động sẽ giải quyết đc
             if (index === -1) {
@@ -82,7 +85,7 @@ export const BTShoe = () => {
             // nên mình phải return về 1 mảng mới
             // return về cái gì thì nó sẽ đem giá trị đó đem đi set lại state cho mình trong setCarts
             return [...prevState]
-            
+
         })
     }
 
@@ -92,7 +95,7 @@ export const BTShoe = () => {
             const index = prevState.findIndex((value) => value.id === productId)
             // biểu thức sau đây nghĩa là nếu cái số lượng trả về 0 tức là falsy thì nó sẽ lấy giá trị là 1
             prevState[index].cartQuantity = prevState[index].cartQuantity + quantity || 1
-            return[...prevState]
+            return [...prevState]
         })
     }
 
@@ -107,7 +110,7 @@ export const BTShoe = () => {
         document.querySelector("#paymentSuccess").classList.remove("d-none");
         document.querySelector("#paymentSuccess").classList.add("d-block");
         setCarts((prevState) => {
-            return prevState = {};
+            return prevState = [];
         })
     }
 
@@ -115,7 +118,7 @@ export const BTShoe = () => {
         <div className="container mt-3">
             <div className="d-flex justify-content-between">
                 <h1>Shoe Shop</h1>
-                <p 
+                <p
                     className="fs-3"
                     style={{
                         // khi chỉ chuột vào hiện ra bàn tay
@@ -134,17 +137,17 @@ export const BTShoe = () => {
             {/* ở đây có 2 props là data và handleProductDetail */}
             <ProductList
                 data={data}
-                handleProductDetail = {handleProductDetail}
-                handleCart = {handleCart}
+                handleProductDetail={handleProductDetail}
+                handleCart={handleCart}
             />
-            <ProductDetailModal 
-                productDetail = {productDetail}
+            <ProductDetailModal
+                productDetail={productDetail}
             />
-            <CartModal 
-                carts = {carts}
-                handleCartQuantity = {handleCartQuantity}
-                deleteCart = {deleteCart}
-                paymentInCart = {paymentInCart}
+            <CartModal
+                carts={carts}
+                handleCartQuantity={handleCartQuantity}
+                deleteCart={deleteCart}
+                paymentInCart={paymentInCart}
             />
 
         </div>
