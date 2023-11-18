@@ -116,7 +116,7 @@ export const CartModal = ({ carts, handleCartQuantity, deleteCart, paymentInCart
             )}
             <div className="d-flex">
               {
-                carts.length &&
+                !!carts.length &&
                 <button
                   className="btn btn-success col-12 ms-auto"
                   style={{
@@ -127,7 +127,6 @@ export const CartModal = ({ carts, handleCartQuantity, deleteCart, paymentInCart
                   Buy
                 </button>
               }
-
             </div>
 
           </div>
