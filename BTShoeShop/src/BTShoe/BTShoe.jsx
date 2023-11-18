@@ -104,6 +104,8 @@ export const BTShoe = () => {
     }
 
     const paymentInCart = () => {
+        document.querySelector("#paymentSuccess").classList.remove("d-none");
+        document.querySelector("#paymentSuccess").classList.add("d-block");
         setCarts((prevState) => {
             return prevState = {};
         })

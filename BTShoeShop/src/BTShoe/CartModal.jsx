@@ -27,7 +27,11 @@ export const CartModal = ({ carts, handleCartQuantity, deleteCart, paymentInCart
           </div>
           <div className="modal-body">
             {/* nếu carts rỗng: falsy */}
-            {!carts.length && <h2>Vui lòng chọn sản phẩm</h2>}
+            <h5 id='paymentSuccess' className='d-none text-danger'>Bạn đã thanh toán thành công</h5>
+            {
+              !carts.length &&
+              <h2> Vui lòng chọn sản phẩm</h2>
+            }
             {/* nếu carts có sản phẩm: falsy của falsy là true */}
             {/* nếu ko có !! thì nó sẽ thêm số 0 vào */}
             {!!carts.length && (
@@ -111,21 +115,25 @@ export const CartModal = ({ carts, handleCartQuantity, deleteCart, paymentInCart
               </table>
             )}
             <div className="d-flex">
-              <button
-                className="btn btn-success col-12 ms-auto"
-                style={{
-                  width: 70,
-                }}
-                onClick={() => paymentInCart()}
-              >
-                Buy
-              </button>
+              {
+                carts.length &&
+                <button
+                  className="btn btn-success col-12 ms-auto"
+                  style={{
+                    width: 70,
+                  }}
+                  onClick={() => paymentInCart()}
+                >
+                  Buy
+                </button>
+              }
+
             </div>
 
           </div>
         </div>
       </div>
-    </div>
+    </div >
   );
 };
 
